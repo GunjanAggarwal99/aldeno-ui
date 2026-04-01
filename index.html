@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Aldeno | Build Your Bundle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Tenor+Sans&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAFAFA;
+        }
+
+        .font-logo {
+            font-family: 'Tenor Sans', sans-serif;
+        }
+
+        .font-heading {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .gold-corners {
+            position: relative;
+        }
+
+        .gold-corners::before,
+        .gold-corners::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+        }
+
+        .gold-corners::before {
+            top: 0;
+            left: 0;
+            border-top: 2px solid #D4AF37;
+            border-left: 2px solid #D4AF37;
+            border-top-left-radius: 20px;
+            opacity: 0.7;
+        }
+
+        .gold-corners::after {
+            bottom: 0;
+            right: 0;
+            border-bottom: 2px solid #D4AF37;
+            border-right: 2px solid #D4AF37;
+            border-bottom-right-radius: 20px;
+            opacity: 0.7;
+        }
+
+        .gold-corners .inner-corner-1,
+        .gold-corners .inner-corner-2 {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            pointer-events: none;
+        }
+
+        .gold-corners .inner-corner-1 {
+            top: 0;
+            right: 0;
+            border-top: 2px solid #D4AF37;
+            border-right: 2px solid #D4AF37;
+            border-top-right-radius: 20px;
+            opacity: 0.7;
+        }
+
+        .gold-corners .inner-corner-2 {
+            bottom: 0;
+            left: 0;
+            border-bottom: 2px solid #D4AF37;
+            border-left: 2px solid #D4AF37;
+            border-bottom-left-radius: 20px;
+            opacity: 0.7;
+        }
+
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Flip Card Animations */
+        .flip-card {
+            perspective: 1000px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1A237E',
+                            navycard: '#2F3350',
+                            gold: '#D4AF37',
+                            lightgray: '#F5F5F5',
+                            darkgray: '#E0E0E0',
+                        }
+                    },
+                    borderRadius: {
+                        'brand': '20px'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="text-gray-800 antialiased">
+    <!-- Header -->
+    <header class="w-full py-4 bg-white sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl tracking-[0.2em] font-logo font-light text-brand-navy">ALDENO</h1>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-md md:max-w-2xl lg:max-w-4xl pt-6 pb-32">
+        <!-- Hero Section -->
+        <section class="relative w-full rounded-brand overflow-hidden shadow-lg h-[400px]">
+            <img src="Images/hero.png" alt="High quality linen shirts"
+                class="absolute w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+            <div class="absolute inset-0 flex flex-col justify-end p-6 text-white text-center">
+                <h2 class="text-[28px] font-heading font-semibold mb-2 leading-[1.1]">Build Your Bundle<br /><span
+                        class="font-light">Unlock Your Style</span></h2>
+                <p class="text-[13px] font-light tracking-wide text-gray-200">More combinations. Less thinking. Better
+                    style.</p>
+            </div>
+        </section>
+
+        <!-- Bundle Selection Area -->
+        <section class="mt-8">
+            <!-- Section Header -->
+            <div class="mb-5 px-4">
+                <h3 class="text-xl font-heading font-semibold text-brand-navy">Shop by Bundle</h3>
+                <p class="text-[14px] text-gray-500 font-sans mt-0.5">Choose how many items you want</p>
+            </div>
+
+            <!-- Sub 32% Card Grid using imported SVGs with equal spacing (10px) -->
+            <div class="flex flex-row justify-between gap-[10px] sm:gap-[12px] px-4 pb-4 w-full">
+
+                <!-- Card 1: Essentials -->
+                <div class="flip-card flex-1 aspect-[5/7.2] cursor-pointer group hover:scale-[1.02] active:scale-[1.02] transition-transform duration-300 transform-gpu"
+                    onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner w-full h-full">
+                        <!-- Default State (Front Face) - Card Back + HTML Overlay -->
+                        <div class="flip-card-front rounded-[16px] overflow-hidden bg-transparent">
+                            <!-- SVG Background Layer -->
+                            <img src="Images/card_back.svg" alt="Card Back Background"
+                                class="w-full h-full object-cover block" />
+
+                            <!-- HTML Overlay Layer -->
+                            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-2">
+                                <h4
+                                    class="text-white font-medium text-[12px] sm:text-[14px] leading-tight mb-[2px] tracking-wide font-heading">
+                                    Essentials<br>Set</h4>
+                                <p
+                                    class="text-white/90 text-[8px] sm:text-[9px] font-medium tracking-wider uppercase drop-shadow-sm">
+                                    2 items &middot; Save 20%</p>
+                            </div>
+                        </div>
+
+                        <!-- Flipped State (Back Face) - Full SVG -->
+                        <div class="flip-card-back rounded-[16px] overflow-hidden bg-transparent" onclick="window.location.href='curate.html'; event.stopPropagation();" title="Select Essentials Bundle">
+                            <img src="Images/Pair_front.svg" alt="Essentials Set Pair"
+                                class="w-full h-full object-cover block" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Signature -->
+                <div class="flip-card flex-1 aspect-[5/7.2] cursor-pointer group hover:scale-[1.02] active:scale-[1.02] transition-transform duration-300 transform-gpu"
+                    onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner w-full h-full">
+                        <div class="flip-card-front rounded-[16px] overflow-hidden bg-transparent">
+                            <img src="Images/card_back.svg" alt="Card Back Background"
+                                class="w-full h-full object-cover block" />
+                            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-2">
+                                <h4
+                                    class="text-white font-medium text-[12px] sm:text-[14px] leading-tight mb-[2px] tracking-wide font-heading">
+                                    Signature<br>Set</h4>
+                                <p
+                                    class="text-white/90 text-[8px] sm:text-[9px] font-medium tracking-wider uppercase drop-shadow-sm">
+                                    3 items &middot; Save 25%</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back rounded-[16px] overflow-hidden bg-transparent">
+                            <img src="Images/aces_front.svg" alt="Signature Set Aces"
+                                class="w-full h-full object-cover block" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Elite -->
+                <div class="flip-card flex-1 aspect-[5/7.2] cursor-pointer group hover:scale-[1.02] active:scale-[1.02] transition-transform duration-300 transform-gpu"
+                    onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner w-full h-full">
+                        <div class="flip-card-front rounded-[16px] overflow-hidden bg-transparent">
+                            <img src="Images/card_back.svg" alt="Card Back Background"
+                                class="w-full h-full object-cover block" />
+                            <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-2">
+                                <h4
+                                    class="text-white font-medium text-[12px] sm:text-[14px] leading-tight mb-[2px] tracking-wide font-heading">
+                                    Elite<br>Set</h4>
+                                <p
+                                    class="text-white/90 text-[8px] sm:text-[9px] font-medium tracking-wider uppercase drop-shadow-sm">
+                                    4 items &middot; Save 30%</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back rounded-[16px] overflow-hidden bg-transparent">
+                            <img src="Images/Straight_front.svg" alt="Elite Set Straight"
+                                class="w-full h-full object-cover block" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Curation Section -->
+        <section class="mt-8 mb-4 px-1">
+            <h3 class="text-xl font-heading font-semibold text-brand-navy mb-4">Curate Your Bundle</h3>
+
+            <div class="relative w-full rounded-brand overflow-hidden shadow-lg bg-white">
+                <div class="h-[450px] w-full relative group">
+                    <img src="Images/model.png" alt="Model wearing striped shirt"
+                        class="w-full h-full object-cover object-top" />
+                    <button
+                        class="absolute top-4 right-4 bg-white/50 backdrop-blur-md p-2.5 rounded-full text-gray-800 hover:text-red-500 transition-colors shadow-sm z-10">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Gradient overlay for text legibility -->
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent pointer-events-none">
+                    </div>
+                </div>
+
+                <div
+                    class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-xl p-4 flex justify-between items-center shadow-md">
+                    <div>
+                        <h4 class="font-medium text-gray-900 text-[15px]">Premium Striped Linen</h4>
+                        <p class="text-xs text-gray-500 mt-1 flex items-center">
+                            <i data-lucide="truck" class="w-3 h-3 mr-1"></i> Delivery by Tomorrow
+                        </p>
+                    </div>
+                    <div class="text-right">
+                        <span class="block font-bold text-lg text-brand-navy tracking-tight">₹999</span>
+                        <span class="block text-[10px] text-gray-400 line-through">₹1499</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-lightgray pt-10 pb-28 border-t border-gray-200">
+        <div class="container mx-auto px-6 max-w-md md:max-w-2xl lg:max-w-4xl">
+            <!-- Newsletter -->
+            <div class="mb-10 text-center">
+                <h4 class="font-heading font-semibold text-xl text-brand-navy mb-2">Keep in Touch</h4>
+                <p class="text-[13px] text-gray-500 mb-6">Subscribe for early access to new arrivals & exclusive offers.
+                </p>
+                <form
+                    class="flex w-full overflow-hidden rounded-full shadow-sm border border-gray-300 focus-within:border-brand-navy focus-within:ring-1 focus-within:ring-brand-navy transition-all">
+                    <input type="email" placeholder="Your email address"
+                        class="w-full px-5 py-3.5 text-sm outline-none bg-white text-gray-700 placeholder-gray-400"
+                        required>
+                    <button type="submit"
+                        class="bg-brand-navy text-white px-6 py-3.5 text-[13px] font-semibold hover:bg-opacity-90 transition-opacity uppercase tracking-wider">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Accordion Links -->
+            <div class="border-t border-gray-200">
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Profile</span>
+                        <span class="transition-transform group-open:rotate-180 text-brand-navy">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">My Account</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Order History</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Saved Items</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Quick Links</span>
+                        <span class="transition-transform group-open:rotate-180 text-brand-navy">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">About Aldeno</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Size Guide</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Contact Us</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Shop</span>
+                        <span class="transition-transform group-open:rotate-180 text-brand-navy">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">New Arrivals</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Best Sellers</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Bundles</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Useful Links</span>
+                        <span class="transition-transform group-open:rotate-180 text-brand-navy">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">Shipping Policy</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Returns & Exchanges</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Social & Bottom -->
+            <div class="mt-10 flex flex-col items-center">
+                <div class="flex space-x-6 mb-8">
+                    <a href="#"
+                        class="text-[11px] font-semibold text-gray-400 hover:text-brand-navy uppercase tracking-widest transition-colors">Instagram</a>
+                    <a href="#"
+                        class="text-[11px] font-semibold text-gray-400 hover:text-brand-navy uppercase tracking-widest transition-colors">Facebook</a>
+                    <a href="#"
+                        class="text-[11px] font-semibold text-gray-400 hover:text-brand-navy uppercase tracking-widest transition-colors">Twitter</a>
+                </div>
+                <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    class="flex items-center space-x-2 text-[11px] font-semibold text-brand-navy hover:text-brand-gold transition-colors uppercase tracking-widest group">
+                    <span>Back to Top</span>
+                    <i data-lucide="arrow-up" class="w-3.5 h-3.5 group-hover:-translate-y-1 transition-transform"></i>
+                </button>
+            </div>
+
+            <div class="mt-10 text-center text-xs text-gray-400">
+                &copy; 2026 Aldeno. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Bar -->
+    <nav
+        class="fixed bottom-0 w-full bg-white/95 backdrop-blur-md border-t border-gray-200 pb-[env(safe-area-inset-bottom)] shadow-[0_-10px_30px_rgba(0,0,0,0.03)] z-50">
+        <div class="max-w-md md:max-w-2xl lg:max-w-4xl mx-auto flex justify-between items-center px-6 py-3">
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12">
+                <i data-lucide="home" class="w-6 h-6 mb-1 stroke-[1.5]"></i>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-brand-navy transition-colors w-12">
+                <i data-lucide="package" class="w-6 h-6 mb-1 fill-brand-navy/10 stroke-2"></i>
+                <span class="text-[10px] font-bold">Bundles</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12">
+                <i data-lucide="compass" class="w-6 h-6 mb-1 stroke-[1.5]"></i>
+                <span class="text-[10px] font-medium">Explore</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12">
+                <i data-lucide="heart" class="w-6 h-6 mb-1 stroke-[1.5]"></i>
+                <span class="text-[10px] font-medium">Wishlist</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12">
+                <i data-lucide="user" class="w-6 h-6 mb-1 stroke-[1.5]"></i>
+                <span class="text-[10px] font-medium">Profile</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- Persistent Bottom Bar -->
+    <div id="persistentBottomBar" class="fixed bottom-[65px] left-4 right-4 z-[90] hidden pb-[env(safe-area-inset-bottom)] transition-all duration-500 opacity-0 translate-y-8">
+        <div class="bg-[#1E1E2F] rounded-[16px] px-3 py-3 shadow-[0_12px_28px_rgba(42,43,66,0.35)] cursor-pointer flex flex-col mx-auto max-w-md md:max-w-2xl lg:max-w-4xl" onclick="window.location.href='cart.html'">
+            <div class="flex items-center justify-between relative z-10">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-[1.5px] border-white/20 shrink-0">
+                        <img id="persistentBarImage" src="" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h5 class="text-[11px] text-white/80 font-medium tracking-wide leading-tight mb-0.5" id="persistentBarCount">1 Items</h5>
+                        <p class="text-[14px] text-white font-semibold flex items-center space-x-1 leading-tight" id="persistentBarSavings">You save ₹0</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='cart.html'; event.stopPropagation();" class="bg-white text-[#1E1E2F] px-5 py-2.5 rounded-full text-[13px] font-bold shadow-sm hover:bg-gray-100 transition whitespace-nowrap">View Cart</button>
+            </div>
+            <!-- Embedded Progress line -->
+            <div class="mt-3.5 mb-1.5 bg-[#454760]/80 h-1 rounded-full w-[96%] mx-auto relative overflow-hidden">
+                <div id="persistentBarProgress" class="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#4E8DE6] to-[#80AFFF] rounded-full transition-all duration-700 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Script Dependency -->
+    <script src="data/cart.js"></script>
+
+    <script>
+        function renderBottomBar() {
+            const stats = getCartTotals();
+            const bar = document.getElementById('persistentBottomBar');
+            
+            if (stats.totalItems === 0) {
+                bar.classList.add('hidden', 'opacity-0', 'translate-y-8');
+                return;
+            }
+
+            const cart = getCart();
+            const lastItem = cart[cart.length - 1];
+            
+            document.getElementById('persistentBarImage').src = lastItem.image;
+            document.getElementById('persistentBarCount').innerText = `${stats.totalItems} Item${stats.totalItems > 1 ? 's' : ''}`;
+            
+            const savingsEl = document.getElementById('persistentBarSavings');
+            if (stats.bundleDiscount > 0) {
+                savingsEl.innerText = `You save ₹${stats.bundleDiscount.toLocaleString('en-IN')}`;
+            } else {
+                savingsEl.innerText = 'Bundle to save 20%';
+            }
+
+            const prog = document.getElementById('persistentBarProgress');
+            let w = "0%";
+            if (stats.totalItems >= 4) w = "100%";
+            else if (stats.totalItems === 3) w = "66%";
+            else if (stats.totalItems === 2) w = "33%";
+            else w = "15%";
+            prog.style.width = w;
+
+            bar.classList.remove('hidden');
+            void bar.offsetWidth;
+            bar.classList.remove('opacity-0', 'translate-y-8');
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => { setTimeout(renderBottomBar, 100); });
+    </script>
+
+    <!-- Init Lucide Icons & Interactions -->
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('button:has([data-lucide="heart"])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const icon = btn.querySelector('svg');
+                if (icon.classList.contains('fill-red-500')) {
+                    icon.classList.remove('fill-red-500', 'text-red-500');
+                    icon.classList.add('text-gray-800');
+                } else {
+                    icon.classList.remove('text-gray-800');
+                    icon.classList.add('fill-red-500', 'text-red-500');
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

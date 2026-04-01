@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Aldeno | Curate Your Bundle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FAFAFA; }
+        .font-logo { font-family: 'Tenor Sans', sans-serif; }
+        .font-heading { font-family: 'Outfit', sans-serif; }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        details>summary { list-style: none; }
+        details>summary::-webkit-details-marker { display: none; }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { navy: '#1A237E', navycard: '#2F3350', gold: '#D4AF37', lightgray: '#F5F5F5', darkgray: '#E0E0E0' }
+                    },
+                    borderRadius: { 'brand': '20px' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="text-gray-800 antialiased bg-brand-lightgray">
+
+    <!-- Header -->
+    <header class="w-full h-14 bg-white sticky top-0 z-50 flex items-center justify-between px-4 border-b border-gray-100 shadow-sm">
+        <a href="index.html" class="p-2 -ml-2 text-brand-navy hover:bg-gray-50 rounded-full transition-colors flex items-center justify-center">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </a>
+        <h1 class="text-[16px] font-heading font-semibold text-brand-navy absolute left-1/2 transform -translate-x-1/2">Shop by Bundle</h1>
+        <div class="w-8"></div>
+    </header>
+
+    <main class="w-full max-w-md md:max-w-2xl lg:max-w-4xl mx-auto flex flex-col bg-white min-h-screen pb-44">
+        
+        <!-- Tabs -->
+        <div class="px-4 bg-white">
+            <div class="flex border-b border-gray-200 mt-2">
+                <button class="flex-1 pb-3 text-[14px] font-semibold text-brand-navy border-b-[2.5px] border-brand-navy">Curated</button>
+                <button class="flex-1 pb-3 text-[14px] font-medium text-gray-400 hover:text-gray-600 transition-colors">Customise</button>
+            </div>
+        </div>
+
+        <!-- Bundle Pills -->
+        <div class="overflow-x-auto hide-scrollbar px-4 py-4 flex space-x-2.5 bg-white">
+            <button onclick="selectBundleType('pair', this)" class="bundle-pill whitespace-nowrap rounded-full bg-brand-navycard text-white px-5 py-2 text-[12px] font-medium flex items-center shadow-md border border-brand-navycard">
+                Pair &middot; Save 20%
+            </button>
+            <button onclick="selectBundleType('aces', this)" class="bundle-pill whitespace-nowrap rounded-full bg-white text-gray-400 border border-gray-200 px-5 py-2 text-[12px] font-medium hover:border-gray-300 hover:text-gray-600 transition-colors">
+                Aces &middot; Save 25%
+            </button>
+            <button onclick="selectBundleType('straight', this)" class="bundle-pill whitespace-nowrap rounded-full bg-white text-gray-400 border border-gray-200 px-5 py-2 text-[12px] font-medium hover:border-gray-300 hover:text-gray-600 transition-colors">
+                Straight &middot; Save 30%
+            </button>
+        </div>
+
+        <!-- Hero Drag Carousel -->
+        <div class="px-4 mb-6">
+            <div id="hero-slider" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-4 pb-2 -mx-4 px-4">
+                
+                <!-- Category 1: Everyday -->
+                <div class="relative w-full shrink-0 snap-center aspect-[4/5] sm:aspect-square rounded-[20px] overflow-hidden shadow-sm bg-gray-100 hero-slide" data-category="everyday">
+                    <img src="Images/Everyday shirt1.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 slide-img">
+                    <img src="Images/Everyday shirt2.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-img">
+                    <img src="Images/Everyday shirt3.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-img">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#4E8DE6] px-3.5 py-1.5 rounded-full text-[10.5px] font-semibold tracking-wide shadow-sm z-10">Best Seller</div>
+
+                    <div class="absolute bottom-7 left-5 text-white pr-6 z-10">
+                        <h2 class="text-[20px] tracking-wide font-heading font-semibold mb-1.5">Everyday Shirt</h2>
+                        <p class="text-[12px] text-gray-200 leading-[1.6] max-w-[280px]">Made for Every Day &mdash; effortless style from morning to night, always on point.</p>
+                    </div>
+                    
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 z-10 pagination">
+                        <div class="w-4 h-1 bg-white rounded-full transition-all duration-500 dot"></div>
+                        <div class="w-1 h-1 bg-white/50 rounded-full transition-all duration-500 dot"></div>
+                        <div class="w-1 h-1 bg-white/50 rounded-full transition-all duration-500 dot"></div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Travel Ready -->
+                <div class="relative w-full shrink-0 snap-center aspect-[4/5] sm:aspect-square rounded-[20px] overflow-hidden shadow-sm bg-gray-100 hero-slide" data-category="travel">
+                    <img src="Images/Travel shirt1.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 slide-img">
+                    <img src="Images/Travel shirt2.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-img">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#4E8DE6] px-3.5 py-1.5 rounded-full text-[10.5px] font-semibold tracking-wide shadow-sm z-10">Travel Edition</div>
+
+                    <div class="absolute bottom-7 left-5 text-white pr-6 z-10">
+                        <h2 class="text-[20px] tracking-wide font-heading font-semibold mb-1.5">Travel Ready</h2>
+                        <p class="text-[12px] text-gray-200 leading-[1.6] max-w-[280px]">Wrinkle-resistant luxury. Pack it, wear it, look flawless anywhere.</p>
+                    </div>
+                    
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 z-10 pagination">
+                        <div class="w-4 h-1 bg-white rounded-full transition-all duration-500 dot"></div>
+                        <div class="w-1 h-1 bg-white/50 rounded-full transition-all duration-500 dot"></div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Work Ready -->
+                <div class="relative w-full shrink-0 snap-center aspect-[4/5] sm:aspect-square rounded-[20px] overflow-hidden shadow-sm bg-gray-100 hero-slide" data-category="work">
+                    <img src="Images/work ready shirt1.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-100 slide-img">
+                    <img src="Images/work ready shirt2.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-img">
+                    <img src="Images/work ready shirt3.png" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 opacity-0 slide-img">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+                    
+                    <div class="absolute top-4 right-4 bg-white/95 backdrop-blur-sm text-[#4E8DE6] px-3.5 py-1.5 rounded-full text-[10.5px] font-semibold tracking-wide shadow-sm z-10">Premium</div>
+
+                    <div class="absolute bottom-7 left-5 text-white pr-6 z-10">
+                        <h2 class="text-[20px] tracking-wide font-heading font-semibold mb-1.5">Work Ready</h2>
+                        <p class="text-[12px] text-gray-200 leading-[1.6] max-w-[280px]">Command the room with structured tailoring and all-day breathable comfort.</p>
+                    </div>
+                    
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-1.5 z-10 pagination">
+                        <div class="w-4 h-1 bg-white rounded-full transition-all duration-500 dot"></div>
+                        <div class="w-1 h-1 bg-white/50 rounded-full transition-all duration-500 dot"></div>
+                        <div class="w-1 h-1 bg-white/50 rounded-full transition-all duration-500 dot"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="px-4 grid grid-cols-2 gap-x-3 gap-y-6 mb-8">
+            <!-- Product 1 -->
+            <div class="flex flex-col group cursor-pointer relative product-card" data-shirt-index="0">
+                <div class="relative aspect-square rounded-[16px] overflow-hidden mb-2.5 bg-gray-100 shadow-sm">
+                    <img src="Images/Shirt1.png" alt="Coastal Blue Stripe" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 product-img">
+                    
+                    <!-- Quick Actions -->
+                    <button class="undo-btn hidden absolute top-2 left-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="undoShirt(event, this)">
+                        <i data-lucide="undo-2" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute top-2 right-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="refreshShirt(event, this)">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    
+                    <!-- Add CTA -->
+                    <button class="absolute bottom-2 right-2 bg-white/95 backdrop-blur text-[#4E8DE6] px-3 py-1.5 flex items-center justify-center rounded-lg text-[11px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-[#4E8DE6] hover:text-white transition-colors" onclick="triggerPDP(event, this)">
+                        <span class="mr-0.5">+</span> Add
+                    </button>
+                </div>
+                
+                <div class="flex justify-between items-start mb-0.5">
+                    <h3 class="text-[13px] font-heading font-medium text-gray-800 leading-tight">Coastal Blue Stripe</h3>
+                    <button class="text-gray-400 hover:text-red-500 transition px-1"><i data-lucide="heart" class="w-3.5 h-3.5"></i></button>
+                </div>
+                
+                <p class="text-[10px] font-medium text-gray-500 mb-1.5 uppercase tracking-widest">XS &middot; S &middot; M &middot; L &middot; XL</p>
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-[13px] font-semibold text-gray-900">&#8377;1,099</span>
+                    <span class="text-[11px] text-gray-400 line-through decoration-gray-300">&#8377;4,499</span>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+             <div class="flex flex-col group cursor-pointer relative product-card" data-shirt-index="1">
+                <div class="relative aspect-square rounded-[16px] overflow-hidden mb-2.5 bg-gray-100 shadow-sm">
+                    <img src="Images/Shirt2.png" alt="Powder Blue Classic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 product-img">
+                    
+                    <button class="undo-btn hidden absolute top-2 left-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="undoShirt(event, this)">
+                        <i data-lucide="undo-2" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute top-2 right-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="refreshShirt(event, this)">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    
+                    <button class="absolute bottom-2 right-2 bg-white/95 backdrop-blur text-[#4E8DE6] px-3 py-1.5 flex items-center justify-center rounded-lg text-[11px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-[#4E8DE6] hover:text-white transition-colors">
+                        <span class="mr-0.5">+</span> Add
+                    </button>
+                </div>
+                
+                <div class="flex justify-between items-start mb-0.5">
+                    <h3 class="text-[13px] font-heading font-medium text-gray-800 leading-tight">Powder Blue Classic</h3>
+                    <button class="text-gray-400 hover:text-red-500 transition px-1"><i data-lucide="heart" class="w-3.5 h-3.5"></i></button>
+                </div>
+                
+                <p class="text-[10px] font-medium text-gray-500 mb-1.5 uppercase tracking-widest">XS &middot; S &middot; M &middot; L &middot; XL</p>
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-[13px] font-semibold text-gray-900">&#8377;999</span>
+                    <span class="text-[11px] text-gray-400 line-through decoration-gray-300">&#8377;4,199</span>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+             <div class="flex flex-col group cursor-pointer relative product-card hidden" id="item-product-3" data-shirt-index="2">
+                <div class="relative aspect-square rounded-[16px] overflow-hidden mb-2.5 bg-gray-100 shadow-sm">
+                    <img src="Images/Shirt3.png" alt="Sand Linen Classic" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 product-img">
+                    <button class="undo-btn hidden absolute top-2 left-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="undoShirt(event, this)">
+                        <i data-lucide="undo-2" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute top-2 right-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="refreshShirt(event, this)">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute bottom-2 right-2 bg-white/95 backdrop-blur text-[#4E8DE6] px-3 py-1.5 flex items-center justify-center rounded-lg text-[11px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-[#4E8DE6] hover:text-white transition-colors">
+                        <span class="mr-0.5">+</span> Add
+                    </button>
+                </div>
+                <div class="flex justify-between items-start mb-0.5">
+                    <h3 class="text-[13px] font-heading font-medium text-gray-800 leading-tight">Sand Linen Classic</h3>
+                    <button class="text-gray-400 hover:text-red-500 transition px-1"><i data-lucide="heart" class="w-3.5 h-3.5"></i></button>
+                </div>
+                <p class="text-[10px] font-medium text-gray-500 mb-1.5 uppercase tracking-widest">XS &middot; S &middot; M &middot; L &middot; XL</p>
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-[13px] font-semibold text-gray-900">&#8377;1,199</span>
+                    <span class="text-[11px] text-gray-400 line-through decoration-gray-300">&#8377;4,299</span>
+                </div>
+             </div>
+
+            <!-- Product 4 -->
+             <div class="flex flex-col group cursor-pointer relative product-card hidden" id="item-product-4" data-shirt-index="3">
+                <div class="relative aspect-square rounded-[16px] overflow-hidden mb-2.5 bg-gray-100 shadow-sm">
+                    <img src="Images/Shirt4.png" alt="Indigo Stripe Edit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 product-img">
+                    <button class="undo-btn hidden absolute top-2 left-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="undoShirt(event, this)">
+                        <i data-lucide="undo-2" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute top-2 right-2 w-7 h-7 bg-white/95 backdrop-blur rounded-full flex items-center justify-center text-[#4E8DE6] shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-white transition" onclick="refreshShirt(event, this)">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5 stroke-[2.5] pointer-events-none"></i>
+                    </button>
+                    <button class="absolute bottom-2 right-2 bg-white/95 backdrop-blur text-[#4E8DE6] px-3 py-1.5 flex items-center justify-center rounded-lg text-[11px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-[#4E8DE6] hover:text-white transition-colors">
+                        <span class="mr-0.5">+</span> Add
+                    </button>
+                </div>
+                <div class="flex justify-between items-start mb-0.5">
+                    <h3 class="text-[13px] font-heading font-medium text-gray-800 leading-tight">Indigo Stripe Edit</h3>
+                    <button class="text-gray-400 hover:text-red-500 transition px-1"><i data-lucide="heart" class="w-3.5 h-3.5"></i></button>
+                </div>
+                <p class="text-[10px] font-medium text-gray-500 mb-1.5 uppercase tracking-widest">XS &middot; S &middot; M &middot; L &middot; XL</p>
+                <div class="flex items-center space-x-1.5">
+                    <span class="text-[13px] font-semibold text-gray-900">&#8377;1,299</span>
+                    <span class="text-[11px] text-gray-400 line-through decoration-gray-300">&#8377;4,899</span>
+                </div>
+             </div>
+
+             <!-- Placeholder Card -->
+            <div id="item-placeholder" class="flex flex-col items-center justify-center border border-dashed border-gray-300 rounded-[16px] w-[98%] mt-1 ml-[1%] h-[calc(100%-80px)] min-h-[160px] bg-gray-50/50 shadow-sm cursor-pointer hover:bg-gray-100 transition-colors">
+                <i data-lucide="lock" class="w-4 h-4 text-gray-400 mb-1.5 stroke-[2]"></i>
+                <span class="text-[10px] font-medium text-gray-500 tracking-wide">Add 1 more to unlock</span>
+            </div>
+        </div>
+
+        <!-- Faded Brand Text -->
+        <div class="pt-8 pb-10 flex justify-center w-full px-4 overflow-hidden">
+            <h2 class="text-5xl font-logo tracking-[0.4em] text-gray-300/80 mr-[-0.4em]">ALDENO</h2>
+        </div>
+
+        <!-- Copied Footer Logic -->
+        <section class="border-t border-gray-200">
+            <!-- Newsletter -->
+            <div class="py-10 text-center px-6">
+                <h4 class="font-heading font-semibold text-[15px] tracking-wide text-gray-800 mb-2 uppercase">Keep in Touch</h4>
+                <p class="text-[12px] text-gray-500 mb-6 leading-relaxed px-4">Stay in the loop, with exclusive offers and product previews.</p>
+                <form class="flex w-full overflow-hidden border-b border-gray-300 pb-2 focus-within:border-brand-navy transition-all relative">
+                    <input type="email" placeholder="Your email address" class="w-full text-sm outline-none bg-transparent text-gray-800 placeholder-gray-400" required>
+                    <button type="submit" class="text-gray-800 text-[12px] font-semibold hover:text-brand-navy transition-colors underline underline-offset-4 decoration-1">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Accordion Links -->
+            <div class="px-6 pb-6">
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Profile</span>
+                        <span class="transition-transform group-open:rotate-180 text-gray-500">
+                            <i data-lucide="plus" class="w-4 h-4 group-open:hidden"></i>
+                            <i data-lucide="minus" class="w-4 h-4 hidden group-open:block"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">My Account</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Order History</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Saved Items</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Quick Links</span>
+                        <span class="transition-transform group-open:rotate-180 text-gray-500">
+                            <i data-lucide="plus" class="w-4 h-4 group-open:hidden"></i>
+                            <i data-lucide="minus" class="w-4 h-4 hidden group-open:block"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">About Aldeno</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Size Guide</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Contact Us</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Shop</span>
+                        <span class="transition-transform group-open:rotate-180 text-gray-500">
+                            <i data-lucide="plus" class="w-4 h-4 group-open:hidden"></i>
+                            <i data-lucide="minus" class="w-4 h-4 hidden group-open:block"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">New Arrivals</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Best Sellers</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Bundles</a>
+                    </div>
+                </details>
+
+                <details class="group py-4 border-b border-gray-200">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer text-gray-800">
+                        <span class="text-[13px] uppercase tracking-widest font-semibold flex-1">Useful Links</span>
+                        <span class="transition-transform group-open:rotate-180 text-gray-500">
+                            <i data-lucide="plus" class="w-4 h-4 group-open:hidden"></i>
+                            <i data-lucide="minus" class="w-4 h-4 hidden group-open:block"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-sm text-gray-500 flex flex-col space-y-3 pl-1">
+                        <a href="#" class="hover:text-brand-navy transition-colors">Shipping Policy</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Returns & Exchanges</a>
+                        <a href="#" class="hover:text-brand-navy transition-colors">Privacy Policy</a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Social Links -->
+            <div class="mt-6 flex flex-col items-center px-6 relative">
+                <h4 class="text-[13px] font-semibold text-gray-800 tracking-widest uppercase mb-4">Social</h4>
+                <div class="absolute right-6 top-0">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="w-8 h-8 flex items-center justify-center border border-gray-200 text-gray-400 hover:text-gray-600 transition-colors">
+                        <i data-lucide="chevron-up" class="w-4 h-4"></i>
+                    </button>
+                </div>
+                
+                <div class="flex space-x-1 mb-8 text-[11px] text-gray-500">
+                    <a href="#" class="hover:text-brand-navy transition-colors">Facebook</a>
+                    <span class="px-1 text-gray-300">|</span>
+                    <a href="#" class="hover:text-brand-navy transition-colors">Twitter</a>
+                    <span class="px-1 text-gray-300">|</span>
+                    <a href="#" class="hover:text-brand-navy transition-colors">Instagram</a>
+                    <span class="px-1 text-gray-300">|</span>
+                    <a href="#" class="hover:text-brand-navy transition-colors">LinkedIn</a>
+                </div>
+            </div>
+            
+            <div class="text-center text-[10px] text-gray-300 pt-8 pb-32">
+                &copy; 2026 Aldeno. All rights reserved.
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky View Bundle CTA -->
+    <div class="fixed bottom-[76px] left-0 w-full z-40 px-4 pointer-events-none">
+        <div class="max-w-md md:max-w-2xl lg:max-w-4xl mx-auto flex justify-center drop-shadow-xl shadow-brand-navy/10 relative">
+            <button class="w-full bg-[#2F3350] text-white py-3.5 rounded-full font-medium text-[14px] shadow-xl pointer-events-auto hover:bg-[#1A237E] transition-all transform active:scale-[0.98]">
+                View your Bundle
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="fixed bottom-0 w-full bg-white border-t border-gray-100 pb-[env(safe-area-inset-bottom)] z-50">
+        <div class="max-w-md md:max-w-2xl lg:max-w-4xl mx-auto flex justify-between items-center px-6 py-2">
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12 pt-1">
+                <i data-lucide="home" class="w-5 h-5 mb-1 stroke-[1.5]"></i>
+                <span class="text-[9px] font-medium tracking-wide">Home</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-[#4E8DE6] transition-colors w-12 pt-1 relative">
+                <i data-lucide="box" class="w-5 h-5 mb-1 stroke-[2]"></i>
+                <span class="text-[9px] font-bold tracking-wide">Bundles</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12 pt-1">
+                <i data-lucide="compass" class="w-5 h-5 mb-1 stroke-[1.5]"></i>
+                <span class="text-[9px] font-medium tracking-wide">Explore</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12 pt-1">
+                <i data-lucide="heart" class="w-5 h-5 mb-1 stroke-[1.5]"></i>
+                <span class="text-[9px] font-medium tracking-wide">Wishlist</span>
+            </a>
+
+            <a href="#" class="flex flex-col items-center text-gray-400 hover:text-brand-navy transition-colors w-12 pt-1">
+                <i data-lucide="user" class="w-5 h-5 mb-1 stroke-[1.5]"></i>
+                <span class="text-[9px] font-medium tracking-wide">Profile</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <script>
+        lucide.createIcons();
+        document.querySelectorAll('button:has([data-lucide="heart"])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const icon = btn.querySelector('svg');
+                if (icon.classList.contains('fill-red-500')) {
+                    icon.classList.remove('fill-red-500', 'text-red-500');
+                    icon.classList.add('text-gray-400');
+                } else {
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('fill-red-500', 'text-red-500');
+                }
+            })
+        });
+
+        // Hero Carousel Auto-Fader Logic
+        const slides = document.querySelectorAll('.hero-slide');
+        let activeFaderInterval = null;
+
+        function startFading(slide) {
+            // clear existing interval if any
+            if(activeFaderInterval) clearInterval(activeFaderInterval);
+            
+            const images = slide.querySelectorAll('.slide-img');
+            const dots = slide.querySelectorAll('.dot');
+            if(images.length <= 1) return; // nothing to crossfade
+
+            let currentIndex = 0;
+            
+            // Default 3s, but Everyday gets 5s as requested
+            let intervalTime = 3000;
+            if (slide.dataset.category === 'everyday') {
+                intervalTime = 5000;
+            }
+            
+            activeFaderInterval = setInterval(() => {
+                // fade out current
+                images[currentIndex].classList.remove('opacity-100');
+                images[currentIndex].classList.add('opacity-0');
+                if(dots[currentIndex]) {
+                    dots[currentIndex].classList.remove('w-4', 'bg-white');
+                    dots[currentIndex].classList.add('w-1', 'bg-white/50');
+                }
+
+                // increment
+                currentIndex = (currentIndex + 1) % images.length;
+
+                // fade in next
+                images[currentIndex].classList.remove('opacity-0');
+                images[currentIndex].classList.add('opacity-100');
+                if(dots[currentIndex]) {
+                    dots[currentIndex].classList.remove('w-1', 'bg-white/50');
+                    dots[currentIndex].classList.add('w-4', 'bg-white');
+                }
+            }, intervalTime);
+        }
+
+        // Intersection Observer to detect which slide is currently fully scrolled into view
+        const sliderElement = document.getElementById('hero-slider');
+        const observerOptions = {
+            root: sliderElement,
+            rootMargin: '0px',
+            threshold: 0.6 // Trigger when at least 60% of the slide is visible in the container wrapper
+        };
+
+        const slideObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    startFading(entry.target);
+                    // Update active pill selector to match if needed, for now just fades images
+                }
+            });
+        }, observerOptions);
+
+        slides.forEach(slide => slideObserver.observe(slide));
+
+        // Product Grid Swap Logic
+        const shirtImages = ['Images/Shirt1.png', 'Images/Shirt2.png', 'Images/Shirt3.png', 'Images/Shirt4.png'];
+
+        function refreshShirt(event, btn) {
+            event.preventDefault();
+            event.stopPropagation();
+            const card = btn.closest('.product-card');
+            const img = card.querySelector('.product-img');
+            const undoBtn = card.querySelector('.undo-btn');
+            
+            // Show undo button functionality triggered
+            if(undoBtn) {
+                undoBtn.classList.remove('hidden');
+            }
+
+            let currentIndex = parseInt(card.dataset.shirtIndex || '0');
+            
+            currentIndex = (currentIndex + 1) % shirtImages.length;
+            card.dataset.shirtIndex = currentIndex;
+            img.src = shirtImages[currentIndex];
+        }
+
+        function undoShirt(event, btn) {
+            event.preventDefault();
+            event.stopPropagation();
+            const card = btn.closest('.product-card');
+            const img = card.querySelector('.product-img');
+            let currentIndex = parseInt(card.dataset.shirtIndex || '0');
+            
+            currentIndex = (currentIndex - 1 + shirtImages.length) % shirtImages.length;
+            card.dataset.shirtIndex = currentIndex;
+            img.src = shirtImages[currentIndex];
+        }
+
+        // Bundle Type Selector Logic
+        function selectBundleType(type, btn) {
+            const pills = document.querySelectorAll('.bundle-pill');
+            pills.forEach(p => {
+                p.className = 'bundle-pill whitespace-nowrap rounded-full bg-white text-gray-400 border border-gray-200 px-5 py-2 text-[12px] font-medium hover:border-gray-300 hover:text-gray-600 transition-colors';
+            });
+            btn.className = 'bundle-pill whitespace-nowrap rounded-full bg-brand-navycard text-white px-5 py-2 text-[12px] font-medium flex items-center shadow-md border border-brand-navycard';
+            
+            const p3 = document.getElementById('item-product-3');
+            const p4 = document.getElementById('item-product-4');
+            const placeholder = document.getElementById('item-placeholder');
+
+            if(type === 'pair') {
+                p3.classList.add('hidden');
+                p4.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            } else if(type === 'aces') {
+                p3.classList.remove('hidden');
+                p4.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            } else if(type === 'straight') {
+                p3.classList.remove('hidden');
+                p4.classList.remove('hidden');
+                placeholder.classList.add('hidden');
+            }
+        }
+
+        // --- DYNAMIC PDP MODAL LOGIC ---
+        let currentQty = 1;
+        let activePDPIndex = 0;
+        let isDirectFullscreen = false;
+
+        function triggerPDP(event, btn) {
+            event.preventDefault();
+            event.stopPropagation();
+            const card = btn.closest('.product-card');
+            const index = parseInt(card.dataset.shirtIndex || '0');
+            openPDP(index);
+        }
+
+        function openPDP(index) {
+            if (typeof products === 'undefined' || !products || products.length === 0) return;
+            const p = products[index];
+            if (!p) return;
+
+            activePDPIndex = index;
+            isDirectFullscreen = false;
+
+            // reset scroll bounds & dynamic structural height state
+            const pdpSheet = document.getElementById('pdpSheet');
+            const pdpContext = document.getElementById('pdpScrollContext');
+            const carousel = document.getElementById('pdpCarousel');
+            
+            pdpContext.scrollTop = 0;
+            pdpSheet.classList.remove('h-[100vh]', 'rounded-none', 'bottom-0', 'left-0', 'right-0');
+            pdpSheet.classList.add('h-[80vh]', 'rounded-[32px]', 'bottom-[120px]', 'left-4', 'right-4');
+            document.getElementById('pdpExtendedContent').classList.add('hidden');
+
+            // Reset generic modal states
+            currentQty = 1;
+
+            // Ensure carousel is visible
+            carousel.classList.remove('hidden', 'translate-y-full', 'opacity-0', 'pointer-events-none');
+            carousel.classList.add('opacity-100', 'pointer-events-auto');
+
+            // Bind contextual dataset
+            document.getElementById('pdpImage').src = p.image;
+            document.getElementById('pdpBreadcrumb').innerText = p.breadcrumb;
+            document.getElementById('pdpTitle').innerText = p.name;
+            document.getElementById('pdpDesc').innerText = p.description;
+            document.getElementById('pdpPrice').innerHTML = '&#8377;' + p.price.toLocaleString('en-IN');
+            document.getElementById('pdpOldPrice').innerHTML = '&#8377;' + p.oldPrice.toLocaleString('en-IN');
+            document.getElementById('pdpDelivery').innerText = p.delivery;
+            document.getElementById('pdpQty').innerText = currentQty;
+            
+            const badge = document.getElementById('pdpBadge');
+            if(p.tag) {
+                badge.innerText = p.tag;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            // Size Generator Loop
+            selectedSize = null; // reset global
+            const sizesContainer = document.getElementById('pdpSizesList');
+            sizesContainer.classList.remove('ring-2', 'ring-red-500', 'ring-offset-2', 'rounded-xl');
+            sizesContainer.innerHTML = '';
+            p.sizes.forEach((s, idx) => {
+                const classes = 'size-btn w-[44px] h-[44px] shrink-0 rounded-full flex items-center justify-center text-[13px] font-medium cursor-pointer border border-gray-200 text-gray-700 hover:border-gray-400 transition';
+                sizesContainer.innerHTML += `<div class="${classes}" onclick="selectSize(this, '${s}')">${s}</div>`;
+            });
+
+            // Render Carousel Items
+            renderCarousel();
+
+            // Activate Core Modal Sequence
+            const overlay = document.getElementById('pdpOverlay');
+            overlay.classList.remove('hidden');
+            void overlay.offsetWidth; // flush CSS layout bounds
+            overlay.classList.remove('opacity-0');
+            overlay.classList.add('opacity-100');
+
+            pdpSheet.classList.remove('translate-y-[150vh]');
+        }
+
+        function renderCarousel() {
+            if (typeof products === 'undefined' || !products || products.length === 0) return;
+            const carousel = document.getElementById('pdpCarousel');
+            carousel.innerHTML = '';
+            
+            // Layout offsets based on mockup sizes
+            const offsets = [-2, -1, 0, 1, 2];
+            const len = products.length;
+            
+            offsets.forEach(offset => {
+                // Circular Array Math mapping exactly to array bounds natively respecting negatives
+                const itemIndex = (((activePDPIndex + offset) % len) + len) % len;
+                const p = products[itemIndex];
+                
+                let baseClasses = "rounded-full bg-gray-100 object-cover cursor-pointer shadow-md transition-all duration-300 shrink-0 ";
+                
+                if (offset === 0) {
+                    baseClasses += "w-[72px] h-[72px] ring-[2.5px] ring-white ring-offset-[-2px] scale-100 opacity-100 z-20 shadow-[0_8px_24px_rgba(0,0,0,0.3)]";
+                } else if (Math.abs(offset) === 1) {
+                    baseClasses += "w-[56px] h-[56px] opacity-90 scale-95 z-10 border-2 border-white hover:opacity-100 hover:scale-100";
+                } else {
+                    baseClasses += "w-[44px] h-[44px] opacity-60 scale-90 z-0 border-2 border-white hover:opacity-100";
+                }
+                
+                carousel.innerHTML += `<img src="${p.image}" class="${baseClasses}" onclick="openPDP(${itemIndex})" />`;
+            });
+        }
+
+        function closePDP() {
+            const overlay = document.getElementById('pdpOverlay');
+            const pdpSheet = document.getElementById('pdpSheet');
+            const carousel = document.getElementById('pdpCarousel');
+
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            pdpSheet.classList.add('translate-y-[150vh]');
+            
+            carousel.classList.remove('opacity-100');
+            carousel.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                carousel.classList.add('hidden');
+            }, 300);
+        }
+
+        function updateQty(delta) {
+            currentQty += delta;
+            if(currentQty < 1) currentQty = 1;
+            document.getElementById('pdpQty').innerText = currentQty;
+        }
+
+        // Scroll-to-expand Native Physics
+        function handlePDPScroll(el) {
+            const pdpSheet = document.getElementById('pdpSheet');
+            const ext = document.getElementById('pdpExtendedContent');
+            const carousel = document.getElementById('pdpCarousel');
+            
+            if (el.scrollTop > 60) {
+                // Escalate to Fullscreen
+                pdpSheet.classList.remove('h-[80vh]', 'rounded-[32px]', 'bottom-[120px]', 'left-4', 'right-4');
+                pdpSheet.classList.add('h-[100vh]', 'rounded-none', 'bottom-0', 'left-0', 'right-0');
+                ext.classList.remove('hidden'); 
+                
+                // Hide Circular carousel safely
+                carousel.classList.remove('opacity-100', 'pointer-events-auto');
+                carousel.classList.add('opacity-0', 'translate-y-full', 'hidden', 'pointer-events-none');
+
+            } else if (el.scrollTop <= 10 && !isDirectFullscreen) {
+                // Collapse to Floating Card bounds natively
+                pdpSheet.classList.remove('h-[100vh]', 'rounded-none', 'bottom-0', 'left-0', 'right-0');
+                pdpSheet.classList.add('h-[80vh]', 'rounded-[32px]', 'bottom-[120px]', 'left-4', 'right-4');
+                
+                // Return Circular Carousel natively
+                carousel.classList.remove('opacity-0', 'translate-y-full', 'hidden', 'pointer-events-none');
+                carousel.classList.add('opacity-100', 'pointer-events-auto');
+            }
+        }
+    </script>
+
+    <!-- ======== PDP MODAL OVERLAYS ======== -->
+    <!-- Dim Overlay -->
+    <div id="pdpOverlay" class="fixed inset-0 bg-black/60 z-[100] hidden transition-opacity duration-300 opacity-0" onclick="closePDP()"></div>
+
+    <!-- Circular Product Carousel injected over Overlay safely tracking bounds natively -->
+    <div id="pdpCarousel" class="fixed bottom-[32px] left-0 right-0 z-[102] flex justify-center items-center space-x-3.5 hidden opacity-0 transition-all duration-300 translate-y-full pointer-events-none px-4 overflow-hidden">
+        <!-- Javascript automatically constructs nested circle elements here -->
+    </div>
+
+    <!-- Active Floating Bottom sheet container anchored cleanly -->
+    <div id="pdpSheet" class="fixed bottom-[120px] left-4 right-4 max-w-md md:max-w-2xl lg:max-w-4xl mx-auto bg-white rounded-[32px] shadow-2xl z-[101] transform translate-y-[150vh] transition-all duration-300 flex flex-col h-[80vh] overflow-hidden">
+        
+        <!-- Overflow Scrolling Native Canvas -->
+        <div id="pdpScrollContext" class="flex-1 overflow-y-auto hide-scrollbar relative bg-white pb-28" onscroll="handlePDPScroll(this)">
+            
+            <!-- Hero Asset header layout -->
+            <div class="relative w-full aspect-[4/5] bg-gray-100 shrink-0">
+                <img id="pdpImage" src="" class="w-full h-full object-cover">
+                <button onclick="closePDP()" class="absolute top-5 left-4 w-10 h-10 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 shadow-[0_2px_8px_rgba(0,0,0,0.1)] z-10 transition hover:bg-white text-[20px]">
+                    <i data-lucide="chevron-left" class="w-6 h-6 stroke-[2]"></i>
+                </button>
+                <button class="absolute top-5 right-4 w-10 h-10 bg-white/95 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-800 shadow-[0_2px_8px_rgba(0,0,0,0.1)] z-10 transition hover:bg-white">
+                    <i data-lucide="share" class="w-4 h-4 stroke-[2]"></i>
+                </button>
+                <div id="pdpBadge" class="absolute top-4 right-16 bg-white/95 backdrop-blur-sm text-[#4E8DE6] px-3 py-1.5 rounded-full text-[11px] font-semibold tracking-wide shadow-sm z-10 hidden"></div>
+            </div>
+
+            <!-- Modal Info Payload Context -->
+            <div class="px-5 py-6 bg-white shrink-0">
+                <p id="pdpBreadcrumb" class="text-[11px] text-gray-500 font-medium tracking-wide mb-3 truncate"></p>
+                
+                <div class="flex justify-between items-start mb-2 gap-4">
+                    <h1 id="pdpTitle" class="text-[20px] font-heading font-semibold text-gray-900 leading-snug"></h1>
+                    <button class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-600 shrink-0 shadow-[0_2px_8px_rgba(0,0,0,0.02)] transition hover:text-red-500">
+                        <i data-lucide="heart" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                
+                <p id="pdpDesc" class="text-[14px] text-gray-600 mb-5 leading-relaxed font-body"></p>
+                
+                <!-- Financial Metadata -->
+                <div class="flex items-center space-x-2.5 mb-2">
+                    <span id="pdpPrice" class="text-[24px] font-bold text-gray-900 tracking-tight"></span>
+                    <span id="pdpOldPrice" class="text-[14px] text-gray-400 line-through decoration-gray-300"></span>
+                </div>
+                <p id="pdpDelivery" class="text-[13px] font-medium text-gray-500 tracking-wide mb-8"></p>
+
+                <!-- QTY Block Layout -->
+                <div class="flex items-center space-x-6 mb-8">
+                    <span class="text-[14px] font-medium text-gray-800 w-16">Quantity</span>
+                    <div class="flex items-center space-x-5">
+                        <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-800 hover:bg-gray-50 transition shadow-sm" onclick="updateQty(-1)"><i data-lucide="minus" class="w-4 h-4 stroke-[2]"></i></button>
+                        <span id="pdpQty" class="text-[15px] font-semibold w-4 text-center">1</span>
+                        <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-800 hover:bg-gray-50 transition shadow-sm" onclick="updateQty(1)"><i data-lucide="plus" class="w-4 h-4 stroke-[2]"></i></button>
+                    </div>
+                </div>
+
+                <!-- Active Sizing Selector Matrix -->
+                <div class="mb-4">
+                    <span class="text-[14px] font-medium text-gray-800 block mb-4">Select Size</span>
+                    <div id="pdpSizesList" class="flex space-x-3"></div>
+                </div>
+            </div>
+
+            <!-- Modal UI Expansion (Fullscreen scroll state context) -->
+            <div id="pdpExtendedContent" class="px-5 pb-10 bg-white hidden mb-4">
+               <h3 class="font-heading font-semibold text-gray-900 mb-4 text-[16px]">Product Details</h3>
+               <div class="border-b border-gray-100 py-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 px-2 rounded-t transition">
+                   <span class="text-[14px] font-medium text-gray-800">Fabric & Material</span>
+                   <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+               </div>
+               <div class="border-b border-gray-100 py-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 px-2 transition">
+                   <span class="text-[14px] font-medium text-gray-800">Fit & Sizing</span>
+                   <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+               </div>
+               <div class="border-b border-gray-100 py-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 px-2 transition">
+                   <span class="text-[14px] font-medium text-gray-800">Care Instructions</span>
+                   <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+               </div>
+               <div class="border-b border-gray-100 py-4 flex justify-between items-center cursor-pointer hover:bg-gray-50 px-2 rounded-b transition">
+                   <span class="text-[14px] font-medium text-gray-800">Shipping & Returns</span>
+                   <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400"></i>
+               </div>
+               
+               <div class="mt-8 border-t border-gray-200 pt-8 hidden">
+                   <!-- Reserved for You may also like logic -->
+               </div>
+            </div>
+        </div>
+        
+        <!-- Sticky Dynamic Absolute CTA -->
+        <div class="absolute bottom-0 w-full left-0 right-0 bg-white border-t border-gray-100 pt-3 pb-[calc(1rem+env(safe-area-inset-bottom))] px-5 z-20 shadow-[0_-8px_20px_rgba(0,0,0,0.03)]">
+            <button onclick="handleAddClick()" class="w-full bg-[#2A2B42] text-white py-[16px] rounded-[24px] font-medium text-[15px] shadow-[0_4px_16px_rgba(42,43,66,0.3)] hover:bg-[#1E1F32] transition">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Mini Cart Popup Bottom Sheet -->
+    <div id="miniCartOverlay" class="fixed inset-0 bg-black/50 z-[120] hidden opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="closeMiniCart()"></div>
+    <div id="miniCartSheet" class="fixed bottom-0 left-0 right-0 bg-white rounded-t-[24px] z-[121] translate-y-full transition-transform duration-300 shadow-[0_-10px_40px_rgba(0,0,0,0.15)] max-w-md md:max-w-2xl lg:max-w-4xl mx-auto h-[80vh] flex flex-col pt-3 pb-0">
+        <!-- Handle -->
+        <div class="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-4 shrink-0"></div>
+        
+        <!-- Header -->
+        <div class="px-5 flex justify-between items-start mb-4 shrink-0">
+            <div>
+                <h2 class="text-[20px] font-heading font-semibold text-gray-900 leading-tight mb-1">Your Cart</h2>
+                <p class="text-[13px] text-gray-500 font-medium">Bundle & save more</p>
+            </div>
+            <button onclick="closeMiniCart()" class="text-gray-400 hover:text-gray-800 transition p-1">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Scrollable Content -->
+        <div class="flex-1 overflow-y-auto px-5 pb-32 hide-scrollbar">
+            <!-- Bundle Progress Card -->
+            <div class="bg-white rounded-[20px] p-4 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 mb-6 w-full relative overflow-hidden">
+                <div class="flex items-center justify-between mb-4 relative z-10 w-full" id="miniCartBundleTiers">
+                    <!-- Rendered by JS -->
+                </div>
+                <p class="text-[11px] font-medium text-gray-500 text-center" id="miniCartBundleProgressText"></p>
+            </div>
+
+            <!-- Items Section -->
+            <div class="mb-6">
+                <h3 class="text-[14px] font-semibold text-gray-900 mb-4 tracking-wide" id="miniCartItemsHeader">Items in Cart (0)</h3>
+                <div id="miniCartItemsList" class="flex flex-col space-y-3">
+                    <!-- Items injected here by JS -->
+                </div>
+            </div>
+
+            <!-- Current Savings -->
+            <div id="miniCartSavingsBlock" class="bg-white rounded-[20px] p-5 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-gray-100 flex justify-between items-center hidden mb-2">
+                <span class="text-[14px] text-gray-700 font-medium">Current Savings</span>
+                <span class="text-[16px] text-[#4E8DE6] font-bold" id="miniCartCurrentSavings">₹0</span>
+            </div>
+        </div>
+        
+        <!-- Inside modal absolute overlay CTA logic is handled by the persistent bar logic since it appears over it in the mockup -->
+    </div>
+
+    <!-- Persistent Bottom Bar -->
+    <div id="persistentBottomBar" class="fixed bottom-[65px] left-4 right-4 z-[130] hidden pb-[env(safe-area-inset-bottom)] transition-all duration-500 opacity-0 translate-y-8">
+        <div class="bg-[#1E1E2F] rounded-[16px] px-3 py-3 shadow-[0_12px_28px_rgba(42,43,66,0.35)] cursor-pointer flex flex-col mx-auto max-w-md md:max-w-2xl lg:max-w-4xl" onclick="window.location.href='cart.html'">
+            <div class="flex items-center justify-between relative z-10">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full overflow-hidden border-[1.5px] border-white/20 shrink-0">
+                        <img id="persistentBarImage" src="" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h5 class="text-[11px] text-white/80 font-medium tracking-wide leading-tight mb-0.5" id="persistentBarCount">1 Items</h5>
+                        <p class="text-[14px] text-white font-semibold flex items-center space-x-1 leading-tight" id="persistentBarSavings">You save ₹0</p>
+                    </div>
+                </div>
+                <button onclick="window.location.href='cart.html'; event.stopPropagation();" class="bg-white text-[#1E1E2F] px-5 py-2.5 rounded-full text-[13px] font-bold shadow-sm hover:bg-gray-100 transition whitespace-nowrap">View Cart</button>
+            </div>
+            <!-- Embedded Progress line -->
+            <div class="mt-3.5 mb-1.5 bg-[#454760]/80 h-1 rounded-full w-[96%] mx-auto relative overflow-hidden">
+                <div id="persistentBarProgress" class="absolute left-0 top-0 bottom-0 bg-gradient-to-r from-[#4E8DE6] to-[#80AFFF] rounded-full transition-all duration-700 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External Script Dependency -->
+    <script src="data/products.js"></script>
+    <script src="data/cart.js"></script>
+    <script>
+        let selectedSize = null;
+        let isMiniCartOpen = false;
+
+        function selectSize(btn, size) {
+            selectedSize = size;
+            document.getElementById('pdpSizesList').classList.remove('ring-2', 'ring-red-500', 'ring-offset-2', 'rounded-xl');
+            document.querySelectorAll('.size-btn').forEach(b => {
+                b.className = 'size-btn w-[44px] h-[44px] shrink-0 rounded-full flex items-center justify-center text-[13px] font-medium cursor-pointer border border-gray-200 text-gray-700 hover:border-gray-400 transition';
+            });
+            btn.className = 'size-btn w-[44px] h-[44px] shrink-0 rounded-full flex items-center justify-center text-[13px] font-semibold cursor-pointer transition border border-[#2A2B42] bg-[#2A2B42] text-white shadow-md transform scale-105';
+        }
+
+        function handleAddClick() {
+            if (!selectedSize) {
+                const container = document.getElementById('pdpSizesList');
+                container.classList.add('ring-2', 'ring-red-500', 'ring-offset-2', 'rounded-xl');
+                container.style.animation = 'none';
+                container.offsetHeight; 
+                container.style.animation = 'shake 0.4s cubic-bezier(.36,.07,.19,.97) both';
+                return;
+            }
+
+            const p = products[activePDPIndex];
+            addToCart(p, selectedSize, currentQty);
+            showMiniCart();
+        }
+
+        function showMiniCart() {
+            isMiniCartOpen = true;
+            
+            const overlay = document.getElementById('miniCartOverlay');
+            const sheet = document.getElementById('miniCartSheet');
+            
+            syncMiniCartUI(); // Build items structure dynamically
+            renderBottomBar(); // Refresh the bar data
+            
+            overlay.classList.remove('hidden');
+            void overlay.offsetWidth;
+            overlay.classList.remove('opacity-0');
+            sheet.classList.remove('translate-y-full');
+            
+            // The persistentBottomBar should appear naturally via z-index above the overlay now
+            document.getElementById('persistentBottomBar').style.bottom = '16px'; // Float above safe area natively during modal open
+        }
+
+        function syncMiniCartUI() {
+            const cart = getCart();
+            const stats = getCartTotals();
+            
+            document.getElementById('miniCartItemsHeader').innerText = `Items in Cart (${stats.totalItems})`;
+            const list = document.getElementById('miniCartItemsList');
+            list.innerHTML = '';
+            
+            cart.forEach(item => {
+                list.innerHTML += `
+                    <div class="bg-white rounded-[20px] p-3.5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-gray-100 flex items-start w-full relative">
+                        <div class="w-20 h-20 rounded-[12px] bg-gray-50 shrink-0 overflow-hidden border border-gray-100/50 relative">
+                            <img src="${item.image}" alt="${item.shortName}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="ml-4 flex-1">
+                            <h3 class="text-[14px] font-heading font-semibold text-gray-900 leading-tight mb-1 pr-4">${item.name}</h3>
+                            <p class="text-[12px] text-gray-500 font-medium mb-3">Size: ${item.size}</p>
+                            
+                            <div class="flex justify-between items-end w-full">
+                                <div class="flex items-center space-x-3 bg-gray-50 rounded-full px-1 border border-gray-100">
+                                    <button class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-gray-900 transition" onclick="changeMiniCartQty('${item.id}', '${item.size}', -1)">
+                                        <i data-lucide="minus" class="w-3 h-3 stroke-[2.5]"></i>
+                                    </button>
+                                    <span class="text-[13px] font-semibold w-2 text-center text-gray-900">${item.quantity}</span>
+                                    <button class="w-7 h-7 flex items-center justify-center text-gray-500 hover:text-gray-900 transition" onclick="changeMiniCartQty('${item.id}', '${item.size}', 1)">
+                                        <i data-lucide="plus" class="w-3 h-3 stroke-[2.5]"></i>
+                                    </button>
+                                </div>
+                                <div class="text-right flex items-center space-x-1.5 align-bottom">
+                                    <span class="text-[14px] font-bold text-gray-900 tracking-tight leading-none">&#8377;${item.price.toLocaleString('en-IN')}</span>
+                                    <span class="text-[11px] text-gray-400 line-through leading-none">&#8377;${item.oldPrice.toLocaleString('en-IN')}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            if (lucide && lucide.createIcons) lucide.createIcons();
+
+            const savingsBox = document.getElementById('miniCartSavingsBlock');
+            if (stats.bundleDiscount > 0) {
+                savingsBox.classList.remove('hidden');
+                document.getElementById('miniCartCurrentSavings').innerText = `₹${stats.bundleDiscount.toLocaleString('en-IN')}`;
+            } else {
+                savingsBox.classList.add('hidden');
+            }
+
+            renderMiniCartBundleTiers(stats.totalItems);
+        }
+
+        function changeMiniCartQty(id, size, delta) {
+            const cart = getCart();
+            const item = cart.find(i => i.id === id && i.size === size);
+            if(item) {
+                updateCartQuantity(id, size, item.quantity + delta);
+                syncMiniCartUI();
+                renderBottomBar();
+            }
+        }
+
+        function renderMiniCartBundleTiers(totalItems) {
+            const tiers = document.getElementById('miniCartBundleTiers');
+            const pt = document.getElementById('miniCartBundleProgressText');
+            
+            const configs = [
+                { id: 'Pair', min: 2, save: '20%' },
+                { id: 'Aces', min: 3, save: '25%' },
+                { id: 'Straight', min: 4, save: '30%' }
+            ];
+
+            let html = '';
+            let nextTier = null;
+
+            configs.forEach((tier, i) => {
+                const isActive = totalItems >= tier.min && (i === configs.length-1 || totalItems < configs[i+1].min);
+                const isUnlocked = totalItems >= tier.min;
+                const isNext = !isUnlocked && nextTier === null;
+                if(isNext) nextTier = tier;
+
+                let classes = "flex-1 flex flex-col items-center justify-center py-2 relative text-center mx-1 rounded-[20px] transition-all duration-300";
+                let textClasses = "text-[12px] font-semibold";
+                let saveClasses = "text-[10px] opacity-80 mt-0.5";
+                let iconClass = "hidden";
+                let upgradeBadgeClass = "hidden";
+
+                if (isActive) {
+                    classes += " bg-[#2A2B42] shadow-[0_4px_12px_rgba(42,43,66,0.2)] scale-105 z-20 border-[1.5px] border-[#2A2B42]";
+                    textClasses += " text-white";
+                    saveClasses += " text-white/90";
+                } else if (isUnlocked) {
+                    classes += " bg-gray-50 border-[1.5px] border-gray-100 z-10 opacity-70";
+                    textClasses += " text-gray-500";
+                    saveClasses += " text-gray-400";
+                    iconClass = "w-3 h-3 text-gray-400 ml-1 inline-block -mt-[2px]";
+                } else {
+                    classes += " bg-gray-50/50 border-[1.5px] border-gray-100 z-10 opacity-50";
+                    textClasses += " text-gray-400";
+                    saveClasses += " text-gray-300";
+                    iconClass = "w-3 h-3 text-gray-400 ml-1 inline-block -mt-[2px]";
+                    if(isNext) {
+                        classes += " opacity-100 border-gray-200 bg-white shadow-sm";
+                        textClasses = "text-[12px] font-semibold text-gray-800";
+                        saveClasses = "text-[10px] text-gray-500 mt-0.5";
+                        upgradeBadgeClass = "absolute -top-3 left-1/2 -translate-x-1/2 bg-[#2A2B42] text-white text-[9px] font-bold px-3 py-[2px] rounded-full whitespace-nowrap shadow-sm";
+                    }
+                }
+
+                html += `
+                    <div class="${classes}">
+                        <div class="${upgradeBadgeClass}">Upgrade</div>
+                        <div class="flex items-center justify-center">
+                            <span class="${textClasses}">${tier.id}</span>
+                            <i data-lucide="${isUnlocked ? 'check' : 'lock'}" class="${iconClass}"></i>
+                        </div>
+                        <span class="${saveClasses}">Save ${tier.save}</span>
+                    </div>
+                `;
+            });
+            
+            tiers.innerHTML = html;
+
+            if (nextTier) {
+                const diff = nextTier.min - totalItems;
+                pt.innerHTML = `Add ${diff} more item${diff>1?'s':''} to unlock <strong class="text-gray-800">${nextTier.id}</strong> & save <strong class="text-gray-800">${nextTier.save}</strong>`;
+            } else if(totalItems >= configs[configs.length-1].min) {
+                 pt.innerHTML = `<span class="text-green-600 font-semibold"><i data-lucide="check-circle" class="w-3.5 h-3.5 inline-block -mt-1 mr-1"></i> Max bundle discount unlocked!</span>`;
+            } else {
+                pt.innerHTML = `Add items to hit bundle marks & unlock deeper discounts.`;
+            }
+        }
+
+        function closeMiniCart() {
+            if (!isMiniCartOpen) return;
+            isMiniCartOpen = false;
+            
+            const overlay = document.getElementById('miniCartOverlay');
+            const sheet = document.getElementById('miniCartSheet');
+            
+            overlay.classList.add('opacity-0');
+            sheet.classList.add('translate-y-full');
+            
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                closePDP();
+                document.getElementById('persistentBottomBar').style.bottom = '65px';
+                renderBottomBar();
+            }, 300);
+        }
+
+        function renderBottomBar() {
+            syncGridAddButtons();
+            const stats = getCartTotals();
+            const bar = document.getElementById('persistentBottomBar');
+            
+            if (stats.totalItems === 0) {
+                bar.classList.add('hidden', 'opacity-0', 'translate-y-8');
+                return;
+            }
+
+            const cart = getCart();
+            const lastItem = cart[cart.length - 1];
+            
+            document.getElementById('persistentBarImage').src = lastItem.image;
+            document.getElementById('persistentBarCount').innerText = `${stats.totalItems} Item${stats.totalItems > 1 ? 's' : ''}`;
+            
+            const savingsEl = document.getElementById('persistentBarSavings');
+            if (stats.bundleDiscount > 0) {
+                savingsEl.innerText = `You save ₹${stats.bundleDiscount.toLocaleString('en-IN')}`;
+            } else {
+                savingsEl.innerText = 'Bundle to save 20%';
+            }
+
+            const prog = document.getElementById('persistentBarProgress');
+            let w = "0%";
+            if (stats.totalItems >= 4) w = "100%";
+            else if (stats.totalItems === 3) w = "66%";
+            else if (stats.totalItems === 2) w = "33%";
+            else w = "15%";
+            prog.style.width = w;
+
+            bar.classList.remove('hidden');
+            void bar.offsetWidth;
+            bar.classList.remove('opacity-0', 'translate-y-8');
+        }
+
+        function syncGridAddButtons() {
+            if (typeof products === 'undefined') return;
+            const cart = getCart();
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                const btn = card.querySelector('button.absolute.bottom-2.right-2');
+                if(!btn) return;
+                
+                if(!btn.onclick) {
+                    btn.onclick = function(e) { triggerPDP(e, this); };
+                }
+                
+                const index = parseInt(card.dataset.shirtIndex || '0');
+                const p = products[index];
+                if(!p) return;
+                
+                const inCart = cart.some(item => item.id === p.id);
+                
+                if (inCart) {
+                    btn.className = "absolute bottom-2 right-2 bg-[#4E8DE6] text-white px-3 py-1 flex items-center justify-center rounded-[8px] text-[12px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.15)] transition-colors";
+                    btn.innerHTML = `<i data-lucide="check" class="w-3.5 h-3.5 mr-1 stroke-[3]"></i> Added`;
+                } else {
+                    btn.className = "absolute bottom-2 right-2 bg-white/95 backdrop-blur text-[#4E8DE6] px-3 py-1 flex items-center justify-center rounded-lg text-[11px] font-semibold shadow-[0_2px_8px_rgba(0,0,0,0.1)] hover:bg-[#4E8DE6] hover:text-white transition-colors";
+                    btn.innerHTML = `<span class="mr-0.5 text-[14px] leading-tight">+</span> Add`;
+                }
+            });
+            if (window.lucide) window.lucide.createIcons();
+        }
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+              10%, 90% { transform: translate3d(-1px, 0, 0); }
+              20%, 80% { transform: translate3d(2px, 0, 0); }
+              30%, 50%, 70% { transform: translate3d(-3px, 0, 0); }
+              40%, 60% { transform: translate3d(3px, 0, 0); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        document.addEventListener('DOMContentLoaded', () => { 
+            setTimeout(renderBottomBar, 100); 
+            
+            // Fullscreen explicit deep link navigation
+            document.querySelectorAll('.product-img').forEach(img => {
+                img.style.cursor = 'pointer';
+                img.addEventListener('click', function(e) {
+                    openPDPFullscreen(e, this);
+                });
+            });
+        });
+
+        function openPDPFullscreen(event, el) {
+            if(event) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            const card = el.closest('.product-card');
+            const index = parseInt(card.dataset.shirtIndex || '0');
+            
+            // Trigger standard popup lifecycle first
+            openPDP(index);
+            isDirectFullscreen = true;
+            
+            // Escalation immediately bypassing drag gesture physically to simulate redirection
+            const pdpSheet = document.getElementById('pdpSheet');
+            const ext = document.getElementById('pdpExtendedContent');
+            const carousel = document.getElementById('pdpCarousel');
+            
+            setTimeout(() => {
+                pdpSheet.classList.remove('h-[80vh]', 'rounded-[32px]', 'bottom-[120px]', 'left-4', 'right-4');
+                pdpSheet.classList.add('h-[100vh]', 'rounded-none', 'bottom-0', 'left-0', 'right-0');
+                ext.classList.remove('hidden'); 
+                
+                carousel.classList.remove('opacity-100', 'pointer-events-auto');
+                carousel.classList.add('opacity-0', 'translate-y-full', 'hidden', 'pointer-events-none');
+                
+                // Push bounding native context offset visually
+                document.getElementById('pdpScrollContext').scrollTop = 70;
+            }, 20); // allow layout cycle to catch CSS engine flush
+        }
+    </script>
+    <script>
+        // Re-initialize icons just for the newly appended DOM elements inside the modal
+        lucide.createIcons();
+        
+        document.querySelectorAll('button:has([data-lucide="heart"])').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const icon = btn.querySelector('svg');
+                if (icon && icon.classList.contains('fill-red-500')) {
+                    icon.classList.remove('fill-red-500', 'text-red-500');
+                    icon.classList.add('text-gray-400');
+                } else if (icon) {
+                    icon.classList.remove('text-gray-400');
+                    icon.classList.add('fill-red-500', 'text-red-500');
+                }
+            })
+        });
+    </script>
+</body>
+</html>

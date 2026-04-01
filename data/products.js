@@ -1,0 +1,106 @@
+const products = [
+  {
+    id: "shirt1",
+    name: "Classic Coastal Blue Stripe Shirt",
+    shortName: "Coastal Blue Stripe",
+    price: 1099,
+    oldPrice: 4499,
+    image: "Images/Shirt1.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Comfortable cotton shirt with a refined soft finish.",
+    delivery: "Delivery by Tue, 26 September",
+    breadcrumb: "Home > Bundles > Men Light blue Checkered Shirt",
+    tag: "Best Seller"
+  },
+  {
+    id: "shirt2",
+    name: "Powder Blue Standard Fit Cotton",
+    shortName: "Powder Blue Classic",
+    price: 999,
+    oldPrice: 4199,
+    image: "Images/Shirt2.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "An every-day classic crafted with 100% fine breathable cotton.",
+    delivery: "Delivery by Wed, 27 September",
+    breadcrumb: "Home > Bundles > Men Solid Pattern Comfort Shirt",
+    tag: ""
+  },
+  {
+    id: "shirt3",
+    name: "Sand Stripe Linen Casual Shirt",
+    shortName: "Sand Linen Classic",
+    price: 1199,
+    oldPrice: 4299,
+    image: "Images/Shirt3.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Lightweight linen shirt with breathable comfort. Perfect for smart casuals.",
+    delivery: "Delivery by Tue, 26 September",
+    breadcrumb: "Home > Bundles > Men Light Sand Checked Linen",
+    tag: "Trending"
+  },
+  {
+    id: "shirt4",
+    name: "Indigo Fine Stripe Edit Edition",
+    shortName: "Indigo Stripe Edit",
+    price: 1299,
+    oldPrice: 4899,
+    image: "Images/Shirt4.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Crisp navy pinstripes in a structured tailored fit. Engineered to perfection.",
+    delivery: "Delivery by Fri, 29 September",
+    breadcrumb: "Home > Bundles > Men Navy Tailored Collection",
+    tag: ""
+  },
+  {
+    id: "shirt5",
+    name: "Midnight Navy Oxford Button-Down",
+    shortName: "Navy Oxford",
+    price: 1399,
+    oldPrice: 4999,
+    image: "Images/Shirt1.png", // Reusing image assets simulating DB
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "A dark rich navy staple tailored from premium Oxford cloth for durability.",
+    delivery: "Delivery by Sat, 30 September",
+    breadcrumb: "Home > Bundles > Men Dark Dress Shirts",
+    tag: "New Arrival"
+  },
+  {
+    id: "shirt6",
+    name: "White & Blue Mini Gingham Check",
+    shortName: "Blue Gingham Check",
+    price: 1150,
+    oldPrice: 4399,
+    image: "Images/Shirt2.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "A preppy and modern check perfect for work-to-weekend transitions.",
+    delivery: "Delivery by Mon, 2 October",
+    breadcrumb: "Home > Bundles > Men Preppy Collection",
+    tag: ""
+  },
+  {
+    id: "shirt7",
+    name: "Olive Green Camp Collar Shirt",
+    shortName: "Olive Camp Collar",
+    price: 1499,
+    oldPrice: 5199,
+    image: "Images/Shirt3.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Relaxed resort-style camp collar cut from breathable linen blends.",
+    delivery: "Delivery by Tue, 3 October",
+    breadcrumb: "Home > Bundles > Men Resort Wear",
+    tag: "Editor's Pick"
+  },
+  {
+    id: "shirt8",
+    name: "Charcoal Grey Poplin Standard",
+    shortName: "Grey Poplin",
+    price: 1050,
+    oldPrice: 3999,
+    image: "Images/Shirt4.png",
+    sizes: ["S", "M", "L", "XL", "XXL"],
+    description: "Soft poplin shirt ideal for pairing with formal trousers or dark denim.",
+    delivery: "Delivery by Wed, 4 October",
+    breadcrumb: "Home > Bundles > Men Formal Poplin",
+    tag: "Essential"
+  }
+];
